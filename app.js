@@ -18,7 +18,9 @@ app.get("/timeout-test", (req, res) => {
           res.end(' World\n');
       }, 5000);
 })
-
+app.get("/redirect", (req, res) => {
+    res.redirect(302, '/health');
+})
 app.get('/health', (req, res) => res.send({"status": "OK", "time": new Date()}))
 var port = process.env.PORT || 8080;
 app.listen(port);
